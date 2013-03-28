@@ -1,0 +1,34 @@
+<h1>Temps</h1>
+<h4>The following is a list of temperatures from around the United States.</h4>
+
+<table>
+  <tr>
+  	<th>Temp</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Lat</th>
+    <th>Lon</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @locations.each do |location| %>
+  <tr>
+  	<td><%= location.temp_f %></td>
+    <td><%= location.city %></td>
+    <td><%= location.state %></td>
+    <td><%= location.zip %></td>
+    <td><%= location.lat %></td>
+    <td><%= location.lon %></td>
+    <td><%= link_to 'Show', location %></td>
+    <td><%= link_to 'Edit', edit_location_path(location) %></td>
+    <td><%= link_to 'Destroy', location, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Location', new_location_path %>
